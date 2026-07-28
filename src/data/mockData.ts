@@ -36,11 +36,11 @@ export const COMPANY_INFO = {
   ]
 };
 
-// priceFrom: valores de partida indicativos — ajustar para a tabela real da Learn Code
+// priceFrom: valores mínimos da Tabela de Preços oficial da Learn Code
 export const SERVICES: ServiceItem[] = [
   {
     id: 'web-dev',
-    priceFrom: '25.000 MZN',
+    priceFrom: '2.500 MT',
     title: 'Desenvolvimento de Websites',
     shortDesc: 'Sites modernos, responsivos e optimizados para fortalecer a presença digital.',
     fullDesc: 'Criamos plataformas web personalizadas, desde landing pages institucionais a portais corporativos complexos, focados em velocidade, segurança, SEO e excelente experiência de utilizador.',
@@ -50,7 +50,7 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     id: 'mobile-apps',
-    priceFrom: '60.000 MZN',
+    priceFrom: '25.000 MT',
     title: 'Aplicações Móveis',
     shortDesc: 'Apps Android e iOS com boa experiência de utilização.',
     fullDesc: 'Desenvolvemos aplicações nativas e híbridas intuitivas, com arquitetura rápida e segura, preparadas para funcionamento offline e integração com APIs de pagamentos regionais.',
@@ -80,7 +80,7 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     id: 'graphic-design',
-    priceFrom: '8.000 MZN',
+    priceFrom: '500 MT',
     title: 'Design Gráfico',
     shortDesc: 'Identidade visual, banners, flyers, posts e materiais digitais.',
     fullDesc: 'Construção de marcas memoráveis através de identidades visuais completas, manuais de marca, peças publicitárias para redes sociais, manuais corporativos e material de apresentação.',
@@ -89,18 +89,7 @@ export const SERVICES: ServiceItem[] = [
     category: 'design'
   },
   {
-    id: 'tech-consulting',
-    priceFrom: '15.000 MZN',
-    title: 'Consultoria Tecnológica',
-    shortDesc: 'Apoio técnico para transformar ideias em soluções reais.',
-    fullDesc: 'Acompanhamos empresas e instituições na transição digital, seleção de tecnologias adequadas, auditoria de código, segurança da informação e estruturação de infraestruturas cloud.',
-    iconName: 'Lightbulb',
-    benefits: ['Planeamento estratégico de TI', 'Auditoria de sistemas e código', 'Arquitetura de software escalável', 'Orientação na escolha de fornecedores'],
-    category: 'consulting'
-  },
-  {
     id: 'tech-education',
-    priceFrom: '3.500 MZN',
     title: 'Formação e Programação',
     shortDesc: 'Cursos práticos em tecnologias actuais.',
     fullDesc: 'Capacitamos jovens, estudantes e profissionais com metodologias 100% práticas, orientadas a projectos reais do mercado moçambicano, do básico ao avançado.',

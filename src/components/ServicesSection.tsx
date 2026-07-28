@@ -103,10 +103,15 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
 
               {/* Price Anchor & Action Button */}
               <div className="pt-5 mt-5 border-t border-slate-100 space-y-3">
-                {service.priceFrom && (
+                {service.priceFrom ? (
                   <div className="flex items-baseline justify-between">
                     <span className="text-[11px] text-slate-500 font-medium">Investimento a partir de</span>
                     <span className="text-lg font-black text-blue-600">{service.priceFrom}</span>
+                  </div>
+                ) : (
+                  <div className="flex items-baseline justify-between">
+                    <span className="text-[11px] text-slate-500 font-medium">Investimento</span>
+                    <span className="text-sm font-bold text-slate-700">Sob consulta</span>
                   </div>
                 )}
                 <button

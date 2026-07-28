@@ -72,7 +72,6 @@ export const Footer: React.FC = () => {
               <li>Sistemas Desktop</li>
               <li>Inteligência Artificial</li>
               <li>Design Gráfico</li>
-              <li>Consultoria Tecnológica</li>
               <li>Cursos de Programação</li>
             </ul>
           </div>

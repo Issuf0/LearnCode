@@ -11,7 +11,7 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: 'Quanto custa um website ou sistema?',
     answer:
-      'Depende do âmbito: um website institucional parte de valores acessíveis para PMEs, enquanto sistemas personalizados (gestão, IA, apps) são orçamentados por funcionalidades. Enviamos sempre uma proposta técnica e financeira detalhada, sem compromisso, em menos de 24 horas.',
+      'Trabalhamos com faixas de referência claras: landing pages de 3.500 a 7.000 MT, websites institucionais de 8.000 a 20.000 MT, lojas online de 20.000 a 45.000 MT, apps móveis a partir de 25.000 MT e sistemas com IA a partir de 20.000 MT. O valor final depende das funcionalidades e é sempre confirmado por escrito antes de começarmos — diagnóstico gratuito em 24h.',
   },
   {
     question: 'Quanto tempo demora um projecto?',
@@ -21,7 +21,7 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: 'Como funciona o pagamento?',
     answer:
-      'Trabalhamos com um modelo simples e seguro: sinal de 50% para iniciar o projecto e os restantes 50% na entrega. Aceitamos M-Pesa, e-Mola e transferência bancária, sempre com factura e recibo emitidos.',
+      'Trabalhamos com um modelo simples e seguro: sinal de 30% a 50% do valor total antes de começarmos o desenvolvimento, e o restante na entrega. Aceitamos M-Pesa, e-Mola e transferência bancária, sempre com factura e recibo emitidos.',
   },
   {
     question: 'Como acompanho o meu projecto depois de fechar?',

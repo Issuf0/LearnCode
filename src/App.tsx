@@ -92,7 +92,7 @@ const PUBLIC_TITLES: Record<string, string> = {
 const PUBLIC_DESCRIPTIONS: Record<string, string> = {
   '': 'A Learn Code desenvolve websites, aplicações móveis, sistemas de gestão e soluções de IA para empresas em Moçambique. Peça o seu orçamento pelo WhatsApp.',
   sobre: 'Conheça a Learn Code: startup tecnológica moçambicana de software, inteligência artificial e formação, sediada em Marracuene, Maputo.',
-  servicos: 'Websites, aplicações móveis, sistemas desktop, IA, design gráfico e consultoria tecnológica em Moçambique — com preços a partir de 8.000 MZN.',
+  servicos: 'Websites a partir de 3.500 MT, aplicações móveis, sistemas desktop, soluções com IA e design gráfico em Moçambique. Diagnóstico gratuito em 24h.',
   produtos: 'Produtos digitais da Learn Code: Script Code, Utiwi e outras soluções tecnológicas criadas em Moçambique.',
   cursos: 'Cursos práticos de programação em Maputo: HTML/CSS, JavaScript, Python, Java e MySQL, com mentoria e certificado.',
   portfolio: 'Projectos reais da Learn Code: SisPoupa (xitique digital), Quiz Code na Google Play e mais casos de sucesso em Moçambique.',

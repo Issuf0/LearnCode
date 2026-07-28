@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(grep -n -A8 \"onEnrollCourse\\(\\\\`\" src/components/CoursesSection.tsx)",
-      "Bash(npm run *)",
-      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:3000)"
-    ]
-  }
-}
