@@ -1,0 +1,95 @@
+import React from 'react';
+import { Sun, Moon, Menu, LogOut, ShieldCheck } from 'lucide-react';
+import logoIcon from '../../assets/images/learncode-icon.png';
+
+interface AdminHeaderProps {
+  isDarkMode: boolean;
+  onToggleDarkMode: () => void;
+  onSwitchToPublicSite: () => void;
+  onSwitchToClientPortal: () => void;
+  onToggleMobileSidebar: () => void;
+}
+
+export const AdminHeader: React.FC<AdminHeaderProps> = ({
+  isDarkMode,
+  onToggleDarkMode,
+  onSwitchToPublicSite,
+  onSwitchToClientPortal,
+  onToggleMobileSidebar,
+}) => {
+  return (
+    <header className="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+      <div className="px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        {/* Left: menu + brand */}
+        <div className="flex items-center gap-3">
+          <button
+            onClick={onToggleMobileSidebar}
+            className="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 lg:hidden"
+            aria-label="Abrir menu"
+          >
+            <Menu className="w-5 h-5" />
+          </button>
+
+          <div className="flex items-center gap-2.5">
+            <img src={logoIcon} alt="Learn Code" className="h-8 w-auto" />
+            <div className="hidden sm:block">
+              <div className="flex items-center gap-1.5">
+                <span className="font-black text-lg tracking-tight text-[#1a9cd8]">
+                  Learn <span className="font-light text-[#29b6e8]">Code</span>
+                </span>
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 flex items-center gap-1">
+                  <ShieldCheck className="w-3 h-3" />
+                  Admin
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right: actions + profile */}
+        <div className="flex items-center gap-2">
+          <button
+            onClick={onToggleDarkMode}
+            className="p-2.5 rounded-xl text-slate-500 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+            title={isDarkMode ? 'Modo claro' : 'Modo escuro'}
+          >
+            {isDarkMode ? <Sun className="w-[18px] h-[18px]" /> : <Moon className="w-[18px] h-[18px]" />}
+          </button>
+
+          <button
+            onClick={onSwitchToPublicSite}
+            className="p-2.5 rounded-xl text-slate-500 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+            title="Sair do painel"
+          >
+            <LogOut className="w-[18px] h-[18px]" />
+          </button>
+
+          <div className="flex items-center gap-2.5 pl-2 ml-1 border-l border-slate-200 dark:border-slate-800">
+            <img
+              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
+              alt="Albino Mabunda"
+              className="w-8 h-8 rounded-xl object-cover"
+            />
+            <div className="hidden md:block">
+              <p className="text-xs font-bold text-slate-900 dark:text-white leading-tight">Albino Mabunda</p>
+              <p className="text-[10px] text-slate-500 dark:text-slate-400">Administrador</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Demo banner */}
+      <div className="bg-amber-50 dark:bg-amber-950/60 border-t border-amber-200 dark:border-amber-800 text-amber-900 dark:text-amber-200 text-[11px] px-4 py-1.5 text-center flex items-center justify-center gap-3 flex-wrap">
+        <span>
+          <span className="font-bold">Ambiente de demonstração</span> — dados fictícios, alterações não são guardadas.
+        </span>
+        <button
+          onClick={onSwitchToClientPortal}
+          className="underline underline-offset-2 font-semibold hover:opacity-70 cursor-pointer"
+        >
+          Ver Portal do Cliente
+        </button>
+      </div>
+    </header>
+  );
+};
