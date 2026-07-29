@@ -14,7 +14,8 @@ from fpdf import FPDF
 from app.core.config import get_settings
 from app.models import Contract
 
-FONT_DIR = "/usr/share/fonts/dejavu-sans-fonts"
+# Fontes incluídas no projecto — funcionam em qualquer ambiente (Railway, Docker, etc.)
+FONT_DIR = Path(__file__).resolve().parent.parent / "assets" / "fonts"
 LOGO_PATH = Path(__file__).resolve().parent.parent / "assets" / "learncode-icon.png"
 
 BLUE = (14, 131, 186)
