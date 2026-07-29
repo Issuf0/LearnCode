@@ -1,0 +1,23 @@
+meta {
+  name: Alternar Milestone
+  type: http
+  seq: 7
+}
+
+patch {
+  url: {{baseUrl}}/projects/1/milestones/1
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{adminToken}}
+}
+
+body:json {
+  {}
+}
+
+docs {
+  Marca/desmarca a milestone como concluída (apenas admin).
+}

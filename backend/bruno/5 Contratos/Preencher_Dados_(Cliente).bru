@@ -1,0 +1,28 @@
+meta {
+  name: Preencher Dados (Cliente)
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/contracts/1/fill
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{clientToken}}
+}
+
+body:json {
+  {
+    "contractor_full_name": "João Alberto Mabunda",
+    "contractor_id_number": "110100123456M",
+    "contractor_address": "Av. Julius Nyerere, 1420, Maputo",
+    "contractor_contact": "+258 84 321 9876"
+  }
+}
+
+docs {
+  Identificação do CONTRATANTE — obrigatória antes de assinar.
+}

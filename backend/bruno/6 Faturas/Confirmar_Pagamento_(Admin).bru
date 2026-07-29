@@ -1,0 +1,19 @@
+meta {
+  name: Confirmar Pagamento (Admin)
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/invoices/1/confirm
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{adminToken}}
+}
+
+docs {
+  Aguarda Confirmação → Paga. Cliente é notificado.
+}

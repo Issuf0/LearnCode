@@ -72,11 +72,6 @@ export const PortalSidebar: React.FC<PortalSidebarProps> = ({
       icon: CalendarDays,
     },
     {
-      id: 'documents' as PortalTab,
-      label: 'Documentos',
-      icon: FolderClosed,
-    },
-    {
       id: 'notifications' as PortalTab,
       label: 'Notificações',
       icon: Bell,

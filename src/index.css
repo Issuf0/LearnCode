@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
-/* O modo escuro é controlado pela aplicação (classe .dark no <html>),
-   não pela preferência do sistema operativo. Arranca sempre em claro. */
+/* O modo escuro é controlado pela aplicação (classe .dark no <html>).
+   Modos: claro, escuro ou automático (segue a preferência do sistema). */
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* Paleta azul da marca Learn Code, derivada do logo (#1a9cd8 / #29b6e8).

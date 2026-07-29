@@ -1,0 +1,26 @@
+meta {
+  name: Contra-assinar (Admin)
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/contracts/1/countersign
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{adminToken}}
+}
+
+body:json {
+  {
+    "signed_by_name": "Issufo Karimo",
+    "signature_image": null
+  }
+}
+
+docs {
+  Quando ambos assinam, o contrato passa a Concluído.
+}

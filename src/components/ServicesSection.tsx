@@ -34,7 +34,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
   };
 
   return (
-    <section id="servicos" className="py-20 bg-white text-slate-900 relative border-t border-slate-200">
+    <section id="servicos" className="py-20 bg-white text-slate-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Header */}
@@ -125,6 +125,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
             </div>
           ))}
         </div>
+
+        {/* Pricing Note */}
+        <p className="mt-8 text-center text-xs text-slate-500 italic">
+          * Os preços apresentados são valores de referência e variam conforme a complexidade e os requisitos de cada sistema. Solicite um orçamento personalizado.
+        </p>
 
       </div>
     </section>

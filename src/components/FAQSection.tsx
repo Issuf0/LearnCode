@@ -43,22 +43,22 @@ export const FAQSection: React.FC = () => {
   )}`;
 
   return (
-    <section id="faq" className="py-20 bg-white text-slate-900 relative border-t border-slate-200">
+    <section id="faq" className="py-20 bg-white dark:bg-slate-950 text-slate-900 dark:text-white relative border-t border-slate-200 dark:border-slate-800">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-600 text-xs font-semibold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider">
             <HelpCircle className="w-3.5 h-3.5" />
             <span>Perguntas Frequentes</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Tudo o que precisa de saber{' '}
-            <span className="text-blue-600">antes de começar.</span>
+            <span className="text-blue-600 dark:text-blue-400">antes de começar.</span>
           </h2>
 
-          <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
             Respostas directas às dúvidas mais comuns sobre preços, prazos e como trabalhamos.
           </p>
         </div>
@@ -72,26 +72,26 @@ export const FAQSection: React.FC = () => {
                 key={index}
                 className={`rounded-2xl border transition-all ${
                   isOpen
-                    ? 'bg-slate-50 border-blue-200 shadow-sm'
-                    : 'bg-white border-slate-200 hover:border-slate-300'
+                    ? 'bg-slate-50 dark:bg-slate-800/50 border-blue-200 dark:border-blue-900 shadow-sm'
+                    : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
                 }`}
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   className="w-full flex items-center justify-between gap-4 px-5 sm:px-6 py-4 sm:py-5 text-left cursor-pointer"
                 >
-                  <span className="text-sm sm:text-base font-bold text-slate-900">
+                  <span className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
                     {item.question}
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 text-blue-600 shrink-0 transition-transform duration-200 ${
+                    className={`w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0 transition-transform duration-200 ${
                       isOpen ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 sm:px-6 pb-5 text-sm text-slate-600 leading-relaxed animate-in fade-in duration-200">
+                  <div className="px-5 sm:px-6 pb-5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed animate-in fade-in duration-200">
                     {item.answer}
                   </div>
                 )}
@@ -102,7 +102,7 @@ export const FAQSection: React.FC = () => {
 
         {/* Fallback CTA */}
         <div className="mt-10 text-center space-y-3">
-          <p className="text-sm text-slate-500">Não encontrou a resposta que procurava?</p>
+          <p className="text-sm text-slate-500 dark:text-slate-400">Não encontrou a resposta que procurava?</p>
           <a
             href={whatsappUrl}
             target="_blank"

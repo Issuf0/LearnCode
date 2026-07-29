@@ -1,0 +1,15 @@
+meta {
+  name: Listar Orçamentos
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/quotations
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{adminToken}}
+}

@@ -9,8 +9,8 @@ import {
   ArrowRight,
   AlertCircle,
 } from 'lucide-react';
-import { AdminClient, AdminTab, Contract, Invoice, Project, Quotation } from '../../../types';
-import { formatMzn, MONTHLY_REVENUE } from '../../../data/adminMockData';
+import { AdminClient, AdminTab, Contract, Invoice, MonthlyRevenuePoint, Project, Quotation } from '../../../types';
+import { formatMzn } from '../../../api';
 
 interface AdminDashboardViewProps {
   clients: AdminClient[];
@@ -18,6 +18,7 @@ interface AdminDashboardViewProps {
   quotations: Quotation[];
   contracts: Contract[];
   invoices: Invoice[];
+  monthlyRevenue: MonthlyRevenuePoint[];
   setActiveTab: (tab: AdminTab) => void;
 }
 
@@ -27,6 +28,7 @@ export const AdminDashboardView: React.FC<AdminDashboardViewProps> = ({
   quotations,
   contracts,
   invoices,
+  monthlyRevenue,
   setActiveTab,
 }) => {
   const activeClients = clients.filter((c) => c.status === 'Activo').length;
@@ -36,7 +38,7 @@ export const AdminDashboardView: React.FC<AdminDashboardViewProps> = ({
   const pendingQuotations = quotations.filter((q) => q.status === 'Pendente').length;
   const pendingContracts = contracts.filter((c) => c.status === 'Pendente Assinatura' || c.status === 'Em Análise').length;
 
-  const maxRevenue = Math.max(...MONTHLY_REVENUE.map((m) => m.valueMzn));
+  const maxRevenue = Math.max(1, ...monthlyRevenue.map((m) => m.valueMzn));
 
   const kpis = [
     { label: 'Clientes Activos', value: String(activeClients), sub: `${clients.length} registados`, icon: Users, tab: 'clients' as AdminTab },
@@ -112,7 +114,7 @@ export const AdminDashboardView: React.FC<AdminDashboardViewProps> = ({
 
             {/* Bars */}
             <div className="absolute inset-0 flex items-end justify-between gap-3 sm:gap-5 px-1">
-              {MONTHLY_REVENUE.map((point) => {
+              {monthlyRevenue.map((point) => {
                 const heightPct = Math.max((point.valueMzn / maxRevenue) * 100, 2);
                 return (
                   <div key={point.month} className="flex-1 h-full flex flex-col items-center justify-end group relative">
@@ -134,7 +136,7 @@ export const AdminDashboardView: React.FC<AdminDashboardViewProps> = ({
 
           {/* X axis labels */}
           <div className="flex justify-between gap-3 sm:gap-5 px-1 mt-2">
-            {MONTHLY_REVENUE.map((point) => (
+            {monthlyRevenue.map((point) => (
               <span key={point.month} className="flex-1 text-center text-[11px] text-slate-500 dark:text-slate-400 font-medium">
                 {point.month}
               </span>

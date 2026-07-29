@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import { Plus, X, Send } from 'lucide-react';
-import { Quotation } from '../../../types';
+import { AdminClient, Quotation } from '../../../types';
 
 interface AdminQuotationsViewProps {
   quotations: Quotation[];
-  onCreateQuotation: (quotation: Quotation) => void;
+  clients: AdminClient[];
+  onCreateQuotation: (payload: {
+    clientId: string;
+    projectTitle: string;
+    priceMzn: number;
+    estimatedTime?: string;
+    description?: string;
+  }) => void;
 }
 
 const STATUS_STYLES: Record<Quotation['status'], string> = {
@@ -14,31 +21,30 @@ const STATUS_STYLES: Record<Quotation['status'], string> = {
   Recusado: 'bg-rose-50 dark:bg-rose-950 text-rose-700 dark:text-rose-400 border-rose-200 dark:border-rose-800',
 };
 
-const EMPTY_FORM = { projectTitle: '', priceMzn: '', estimatedTime: '', description: '' };
+const EMPTY_FORM = { clientId: '', projectTitle: '', priceMzn: '', estimatedTime: '', description: '' };
 
-export const AdminQuotationsView: React.FC<AdminQuotationsViewProps> = ({ quotations, onCreateQuotation }) => {
+export const AdminQuotationsView: React.FC<AdminQuotationsViewProps> = ({ quotations, clients, onCreateQuotation }) => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [form, setForm] = useState(EMPTY_FORM);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.projectTitle || !form.priceMzn) return;
+    const price = Number(form.priceMzn);
+    if (!form.clientId || !form.projectTitle || !price) return;
 
     onCreateQuotation({
-      id: `qt-${Date.now()}`,
-      code: `ORC-2026-${String(quotations.length + 1).padStart(3, '0')}`,
+      clientId: form.clientId,
       projectTitle: form.projectTitle,
-      priceMzn: form.priceMzn,
-      priceUsd: '—',
-      estimatedTime: form.estimatedTime || 'A definir',
-      technologies: [],
-      description: form.description,
-      status: 'Pendente',
-      date: '28 Jul 2026',
+      priceMzn: price,
+      estimatedTime: form.estimatedTime || undefined,
+      description: form.description || undefined,
     });
     setForm(EMPTY_FORM);
     setIsFormOpen(false);
   };
+
+  const inputClass =
+    'w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 transition-colors';
 
   return (
     <div className="space-y-5 animate-in fade-in duration-300">
@@ -46,7 +52,7 @@ export const AdminQuotationsView: React.FC<AdminQuotationsViewProps> = ({ quotat
         <div>
           <h1 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Gestão de Orçamentos</h1>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-            Cria e envia orçamentos — o cliente aprova ou recusa no portal dele.
+            O cliente recebe notificação e aprova ou recusa no portal dele.
           </p>
         </div>
         <button
@@ -57,6 +63,12 @@ export const AdminQuotationsView: React.FC<AdminQuotationsViewProps> = ({ quotat
           <span>Novo Orçamento</span>
         </button>
       </div>
+
+      {quotations.length === 0 && (
+        <p className="text-xs text-slate-500 dark:text-slate-400 p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center">
+          Ainda sem orçamentos.
+        </p>
+      )}
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {quotations.map((q) => (
@@ -103,50 +115,34 @@ export const AdminQuotationsView: React.FC<AdminQuotationsViewProps> = ({ quotat
 
             <form onSubmit={handleSubmit} className="space-y-3">
               <div className="space-y-1">
+                <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">Cliente</label>
+                <select required value={form.clientId} onChange={(e) => setForm((p) => ({ ...p, clientId: e.target.value }))} className={inputClass}>
+                  <option value="">Seleccionar cliente...</option>
+                  {clients.map((c) => (
+                    <option key={c.id} value={c.id}>{c.name} — {c.company}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="space-y-1">
                 <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">Título do Projecto</label>
-                <input
-                  type="text"
-                  required
-                  value={form.projectTitle}
-                  onChange={(e) => setForm((p) => ({ ...p, projectTitle: e.target.value }))}
-                  placeholder="Ex: Website Institucional Escola Horizonte"
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 transition-colors"
-                />
+                <input required placeholder="Ex: Website Institucional" value={form.projectTitle} onChange={(e) => setForm((p) => ({ ...p, projectTitle: e.target.value }))} className={inputClass} />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div className="space-y-1">
                   <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">Valor (MZN)</label>
-                  <input
-                    type="text"
-                    required
-                    value={form.priceMzn}
-                    onChange={(e) => setForm((p) => ({ ...p, priceMzn: e.target.value }))}
-                    placeholder="Ex: 85.000 MZN"
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 transition-colors"
-                  />
+                  <input required type="number" min={1} placeholder="Ex: 15000" value={form.priceMzn} onChange={(e) => setForm((p) => ({ ...p, priceMzn: e.target.value }))} className={inputClass} />
                 </div>
                 <div className="space-y-1">
                   <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">Prazo Estimado</label>
-                  <input
-                    type="text"
-                    value={form.estimatedTime}
-                    onChange={(e) => setForm((p) => ({ ...p, estimatedTime: e.target.value }))}
-                    placeholder="Ex: 4 semanas"
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 transition-colors"
-                  />
+                  <input placeholder="Ex: 4 semanas" value={form.estimatedTime} onChange={(e) => setForm((p) => ({ ...p, estimatedTime: e.target.value }))} className={inputClass} />
                 </div>
               </div>
 
               <div className="space-y-1">
                 <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">Descrição / Âmbito</label>
-                <textarea
-                  rows={3}
-                  value={form.description}
-                  onChange={(e) => setForm((p) => ({ ...p, description: e.target.value }))}
-                  placeholder="Resumo do que está incluído neste orçamento..."
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 transition-colors resize-y"
-                />
+                <textarea rows={3} placeholder="Resumo do que está incluído neste orçamento..." value={form.description} onChange={(e) => setForm((p) => ({ ...p, description: e.target.value }))} className={`${inputClass} resize-y`} />
               </div>
 
               <button

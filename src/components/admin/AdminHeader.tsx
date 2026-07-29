@@ -1,20 +1,23 @@
 import React from 'react';
-import { Sun, Moon, Menu, LogOut, ShieldCheck } from 'lucide-react';
+import { Sun, Moon, Menu, LogOut, ShieldCheck, ExternalLink } from 'lucide-react';
+import { avatarFor } from '../../api';
 import logoIcon from '../../assets/images/learncode-icon.png';
 
 interface AdminHeaderProps {
+  adminName: string;
   isDarkMode: boolean;
   onToggleDarkMode: () => void;
   onSwitchToPublicSite: () => void;
-  onSwitchToClientPortal: () => void;
+  onLogout: () => void;
   onToggleMobileSidebar: () => void;
 }
 
 export const AdminHeader: React.FC<AdminHeaderProps> = ({
+  adminName,
   isDarkMode,
   onToggleDarkMode,
   onSwitchToPublicSite,
-  onSwitchToClientPortal,
+  onLogout,
   onToggleMobileSidebar,
 }) => {
   return (
@@ -49,6 +52,14 @@ export const AdminHeader: React.FC<AdminHeaderProps> = ({
         {/* Right: actions + profile */}
         <div className="flex items-center gap-2">
           <button
+            onClick={onSwitchToPublicSite}
+            className="p-2.5 rounded-xl text-slate-500 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+            title="Ver site institucional"
+          >
+            <ExternalLink className="w-[18px] h-[18px]" />
+          </button>
+
+          <button
             onClick={onToggleDarkMode}
             className="p-2.5 rounded-xl text-slate-500 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
             title={isDarkMode ? 'Modo claro' : 'Modo escuro'}
@@ -57,38 +68,21 @@ export const AdminHeader: React.FC<AdminHeaderProps> = ({
           </button>
 
           <button
-            onClick={onSwitchToPublicSite}
-            className="p-2.5 rounded-xl text-slate-500 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
-            title="Sair do painel"
+            onClick={onLogout}
+            className="p-2.5 rounded-xl text-slate-500 dark:text-slate-300 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950 transition-colors cursor-pointer"
+            title="Terminar sessão"
           >
             <LogOut className="w-[18px] h-[18px]" />
           </button>
 
           <div className="flex items-center gap-2.5 pl-2 ml-1 border-l border-slate-200 dark:border-slate-800">
-            <img
-              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
-              alt="Albino Mabunda"
-              className="w-8 h-8 rounded-xl object-cover"
-            />
+            <img src={avatarFor(adminName)} alt={adminName} className="w-8 h-8 rounded-xl object-cover" />
             <div className="hidden md:block">
-              <p className="text-xs font-bold text-slate-900 dark:text-white leading-tight">Albino Mabunda</p>
+              <p className="text-xs font-bold text-slate-900 dark:text-white leading-tight">{adminName}</p>
               <p className="text-[10px] text-slate-500 dark:text-slate-400">Administrador</p>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Demo banner */}
-      <div className="bg-amber-50 dark:bg-amber-950/60 border-t border-amber-200 dark:border-amber-800 text-amber-900 dark:text-amber-200 text-[11px] px-4 py-1.5 text-center flex items-center justify-center gap-3 flex-wrap">
-        <span>
-          <span className="font-bold">Ambiente de demonstração</span> — dados fictícios, alterações não são guardadas.
-        </span>
-        <button
-          onClick={onSwitchToClientPortal}
-          className="underline underline-offset-2 font-semibold hover:opacity-70 cursor-pointer"
-        >
-          Ver Portal do Cliente
-        </button>
       </div>
     </header>
   );

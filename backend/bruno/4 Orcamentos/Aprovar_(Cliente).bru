@@ -1,0 +1,19 @@
+meta {
+  name: Aprovar (Cliente)
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/quotations/1/approve
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{clientToken}}
+}
+
+docs {
+  Só o dono pode aprovar. Transição única — repetir devolve 409.
+}

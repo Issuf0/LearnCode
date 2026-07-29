@@ -81,10 +81,8 @@ export type PortalTab =
   | 'contracts'
   | 'quotations'
   | 'meetings'
-  | 'documents'
   | 'notifications'
-  | 'profile'
-  | 'new-project';
+  | 'profile';
 
 export interface ClientProfile {
   id: string;
@@ -147,6 +145,7 @@ export interface TimelineEvent {
 
 export interface Project {
   id: string;
+  clientId: string;
   name: string;
   description: string;
   category: string;
@@ -172,12 +171,23 @@ export interface Contract {
   projectName: string;
   date: string;
   valueMzn: string;
-  status: 'Pendente Assinatura' | 'Assinado' | 'Em Análise' | 'Cancelado';
-  pdfPreviewUrl?: string;
+  status: 'Em Análise' | 'Pendente Assinatura' | 'Assinado' | 'Concluído' | 'Cancelado';
   signedAt?: string;
-  signatureDataUrl?: string;
   signedByName?: string;
   digitalCertHash?: string;
+  // Campos do contrato oficial de prestação de serviços
+  serviceDescription?: string;
+  specifications?: string;
+  depositPercent?: number;
+  paymentMethod?: string;
+  startDate?: string;
+  deliveryDate?: string;
+  contractorFullName?: string;
+  contractorIdNumber?: string;
+  contractorAddress?: string;
+  contractorContact?: string;
+  adminSignedAt?: string;
+  adminSignedByName?: string;
 }
 
 export interface Quotation {
@@ -191,15 +201,6 @@ export interface Quotation {
   description: string;
   status: 'Draft' | 'Pendente' | 'Aprovado' | 'Recusado';
   date: string;
-}
-
-export interface ClientDocument {
-  id: string;
-  name: string;
-  category: 'Branding & Logo' | 'Termos de Referência' | 'Contratos & SLA' | 'Faturas & Recibos' | 'Manuais & Guias';
-  size: string;
-  uploadDate: string;
-  fileType: 'pdf' | 'zip' | 'docx' | 'png' | 'mp4';
 }
 
 // =====================================
@@ -266,3 +267,6 @@ export interface PortalNotification {
   targetTab?: PortalTab;
 }
 
+
+// Tema da plataforma: manual (light/dark) ou automático (segue o sistema operativo)
+export type ThemeMode = 'light' | 'dark' | 'auto';

@@ -1,0 +1,15 @@
+meta {
+  name: Recusar (Cliente)
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/quotations/2/reject
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{clientToken}}
+}

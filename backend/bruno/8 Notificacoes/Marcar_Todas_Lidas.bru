@@ -1,0 +1,19 @@
+meta {
+  name: Marcar Todas Lidas
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/notifications/read-all
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{clientToken}}
+}
+
+docs {
+  Devolve 204.
+}

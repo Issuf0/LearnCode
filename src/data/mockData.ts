@@ -40,7 +40,7 @@ export const COMPANY_INFO = {
 export const SERVICES: ServiceItem[] = [
   {
     id: 'web-dev',
-    priceFrom: '2.500 MT',
+    priceFrom: '15.000 MT',
     title: 'Desenvolvimento de Websites',
     shortDesc: 'Sites modernos, responsivos e optimizados para fortalecer a presença digital.',
     fullDesc: 'Criamos plataformas web personalizadas, desde landing pages institucionais a portais corporativos complexos, focados em velocidade, segurança, SEO e excelente experiência de utilizador.',
@@ -80,7 +80,7 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     id: 'graphic-design',
-    priceFrom: '500 MT',
+    priceFrom: '2.500 MT',
     title: 'Design Gráfico',
     shortDesc: 'Identidade visual, banners, flyers, posts e materiais digitais.',
     fullDesc: 'Construção de marcas memoráveis através de identidades visuais completas, manuais de marca, peças publicitárias para redes sociais, manuais corporativos e material de apresentação.',
@@ -101,43 +101,17 @@ export const SERVICES: ServiceItem[] = [
 
 export const PRODUCTS: ProductItem[] = [
   {
-    id: 'script-code',
-    name: 'Script Code',
-    tagline: 'Plataforma móvel de aprendizagem de programação web',
-    description: 'Plataforma interactiva concebida para ensinar jovens a programar directamente a partir do telemóvel, com exercícios práticos, compilação de código no dispositivo e quizzes.',
-    status: 'Activo',
-    statusColor: 'active',
-    category: 'EdTech & Formação',
-    features: ['Editor de código no smartphone', 'Lições curtas e interativas em Português', 'Desafios diários e ranking', 'Acesso offline ao conteúdo teórico'],
-    impactSummary: 'Mais de 1.500 downloads e dezenas de jovens moçambicanos a dar os primeiros passos no desenvolvimento web.',
-    targetAudience: 'Estudantes, autodidactas e iniciantes na programação em Moçambique e Países de Língua Portuguesa.',
-    techStack: ['Android NAv', 'Kotlin', 'Embedded Web View Engine', 'SQLite']
-  },
-  {
-    id: 'utiwi',
-    name: 'Utiwi',
-    tagline: 'Projecto de literacia infantil tecnológica',
-    description: 'Solução educativa interactiva para promover a alfabetização e o raciocínio lógico em crianças moçambicanas, combinando narrativas locais, jogos didácticos e voz.',
-    status: 'Em Desenvolvimento',
-    statusColor: 'development',
-    category: 'Educação & Impacto Social',
-    features: ['Contos pedagógicos na língua local e Português', 'Jogos de associação de palavras e números', 'Acompanhamento do progresso parental', 'Interface altamente visual e intuitiva'],
-    impactSummary: 'Concebido para preencher lacunas de aprendizagem na fase inicial da infância em comunidades rurais e urbanas.',
-    targetAudience: 'Crianças dos 4 aos 10 anos, escolas primárias e encarregados de educação.',
-    techStack: ['React Native', 'Node.js', 'Audio Synthesis Engine', 'Cloud Firestore']
-  },
-  {
     id: 'ecomaputo',
     name: 'EcoMaputo',
     tagline: 'Plataforma digital de gestão sustentável de resíduos',
     description: 'Sistema inovador que liga cidadãos, catadores e empresas de reciclagem na cidade de Maputo para rastreamento de pontos de recolha, denúncia de lixeiras e incentivo à reciclagem.',
-    status: 'Em Desenvolvimento',
-    statusColor: 'development',
+    status: 'Activo',
+    statusColor: 'active',
     category: 'Smart Cities & Sustentabilidade',
     features: ['Mapeamento em tempo real de ecopeças', 'Solicitação de recolha selectiva ao domicílio', 'Relatórios ecológicos para o município', 'Sistema de pontos e recompensas sustentáveis'],
     impactSummary: 'Promove a transição de Maputo para uma cidade inteligente e limpa, reduzindo o impacto ambiental.',
     targetAudience: 'Municípios, empresas de gestão ambiental, catadores e moradores da Região Metropolitana de Maputo.',
-    techStack: ['Flutter', 'Node.js', 'Geolocalização GIS', 'PostgreSQL']
+    techStack: ['React Native (App Cidadão)', 'Angular (Painel Admin)', 'FastAPI', 'MySQL']
   },
   {
     id: 'roadmz',
@@ -150,15 +124,15 @@ export const PRODUCTS: ProductItem[] = [
     features: ['Simulador de exames com temporizador oficial', 'Chatbot IA especialista no Código da Estrada Moçambicano', 'Sinalização rodoviária explicada', 'Estatísticas de desempenho do aluno'],
     impactSummary: 'Mais de 3.000 exames simulados realizados e taxa de aprovação de 88% entre os utilizadores frequentes.',
     targetAudience: 'Candidatos à carta de condução, escolas de condução e condutores em actualização.',
-    techStack: ['React', 'Gemini AI API', 'Express Backend', 'Tailwind CSS']
+    techStack: ['React Native', 'FastAPI', 'Gemini AI API']
   },
   {
     id: 'codigo-civil-mz',
     name: 'Código Civil Moçambicano',
     tagline: 'Chatbot e API de acesso democrático à legislação nacional',
     description: 'Ferramenta pioneira de Inteligência Artificial que simplifica a consulta e compreensão das leis civis moçambicanas para juristas, cidadãos e instituições.',
-    status: 'Activo',
-    statusColor: 'active',
+    status: 'Em Desenvolvimento',
+    statusColor: 'development',
     category: 'LegalTech & Inteligência Artificial',
     features: ['Pesquisa por linguagem natural ("O que diz a lei sobre contratos de arrendamento?")', 'API REST para integração em sistemas jurídicos', 'Indexação actualizada dos artigos e decretos', 'Resumos simplificados de legislação complexa'],
     impactSummary: 'Democratiza o acesso ao direito e acelera em até 70% a pesquisa jurídica básica em Moçambique.',
@@ -285,18 +259,6 @@ export const CASE_STUDIES: CaseStudy[] = [
     link: 'https://play.google.com/store/apps/details?id=com.karimo02.learnjava',
   },
   {
-    id: 'case-utiwi',
-    title: 'Utiwi — Apoio à Literacia Infantil em Moçambique',
-    clientCategory: 'Impacto Social & Infância',
-    problem: 'Dificuldade de acesso a materiais educativos infantis contextualizados com a cultura e realidade moçambicana nas fases iniciais de aprendizagem.',
-    solution: 'Projetámos um aplicativo interactivo com histórias narradas, ilustrações vibrantes e exercícios lúdicos que ensinam a ler e contar histórias locais.',
-    impact: 'Projecto piloto implementado com sucesso em 3 centros comunitários na Província de Maputo, beneficiando mais de 150 crianças.',
-    results: ['Melhoria de 40% no reconhecimento de letras', 'Histórias nativas preservadas digitalmente', 'Elevada aceitação por educadores'],
-    technologies: ['React Native', 'Audio Engine', 'Firebase', 'Design Ilustrativo'],
-    featuredProductRef: 'utiwi',
-    imageSeed: 'child-learning'
-  },
-  {
     id: 'case-ecomaputo',
     title: 'EcoMaputo — Mapeamento Inteligente para Gestão do Lixo',
     clientCategory: 'Cidades Inteligentes & Meio Ambiente',
@@ -304,7 +266,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     solution: 'Criação de um sistema web e mobile de geolocalização que mapeia ecopontos, permite o agendamento de recolhas comunitárias e gera dados para as autoridades de gestão sanitária.',
     impact: 'Mapeamento de mais de 40 ecopontos na cidade de Maputo e engajamento da comunidade jovem na preservação ambiental.',
     results: ['+40 ecopontos registados', 'Mais de 2 toneladas de resíduos recicláveis encaminhados', 'Painel analítico para gestão de rotas'],
-    technologies: ['Flutter', 'PostgreSQL', 'Google Maps API', 'Node.js'],
+    technologies: ['React Native', 'Angular', 'FastAPI', 'MySQL'],
     featuredProductRef: 'ecomaputo',
     imageSeed: 'eco-maputo'
   }

@@ -94,7 +94,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
     <>
       {/* Desktop sidebar */}
       <aside
-        className={`hidden lg:block fixed left-0 top-[93px] bottom-0 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-y-auto transition-all duration-300 ${
+        className={`hidden lg:block fixed left-0 top-16 bottom-0 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-y-auto transition-all duration-300 ${
           isCollapsed ? 'w-[72px] px-3 py-6' : 'w-60 px-4 py-6'
         }`}
       >

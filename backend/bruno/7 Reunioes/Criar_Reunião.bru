@@ -1,0 +1,28 @@
+meta {
+  name: Criar Reunião
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/meetings
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{adminToken}}
+}
+
+body:json {
+  {
+    "client_id": 2,
+    "title": "Revisão do design",
+    "scheduled_at": "2026-08-05T14:30:00",
+    "meet_link": "https://meet.google.com/abc-defg-hij"
+  }
+}
+
+docs {
+  Cliente é notificado com data/hora e link do Meet.
+}

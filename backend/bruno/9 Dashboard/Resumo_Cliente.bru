@@ -1,0 +1,15 @@
+meta {
+  name: Resumo Cliente
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/dashboard/client
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{clientToken}}
+}

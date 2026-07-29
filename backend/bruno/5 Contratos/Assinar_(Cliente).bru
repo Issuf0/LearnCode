@@ -1,0 +1,26 @@
+meta {
+  name: Assinar (Cliente)
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/contracts/1/sign
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{clientToken}}
+}
+
+body:json {
+  {
+    "signed_by_name": "João Alberto Mabunda",
+    "signature_image": null
+  }
+}
+
+docs {
+  Sela com SHA-256 + IP + timestamp. signature_image aceita data URL PNG da assinatura desenhada.
+}

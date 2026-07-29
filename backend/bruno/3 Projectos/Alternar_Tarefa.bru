@@ -1,0 +1,23 @@
+meta {
+  name: Alternar Tarefa
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{baseUrl}}/projects/1/tasks/1
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{adminToken}}
+}
+
+body:json {
+  {}
+}
+
+docs {
+  Alterna a tarefa entre concluída e em progresso.
+}

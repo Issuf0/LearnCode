@@ -1,0 +1,33 @@
+meta {
+  name: Criar Contrato
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/contracts
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{adminToken}}
+}
+
+body:json {
+  {
+    "client_id": 2,
+    "title": "Desenvolvimento de Website Institucional",
+    "service_description": "Website institucional de 6 páginas",
+    "specifications": "Início, Sobre, Serviços, Portfólio, Blog e Contacto; SEO; formulário WhatsApp.",
+    "start_date": "2026-08-01",
+    "delivery_date": "2026-08-29",
+    "value_mzn": 15000,
+    "deposit_percent": 40,
+    "payment_method": "M-Pesa / Transferência bancária"
+  }
+}
+
+docs {
+  Cria a partir do template oficial (13 cláusulas). Número LC-2026-CTR-XXX automático.
+}

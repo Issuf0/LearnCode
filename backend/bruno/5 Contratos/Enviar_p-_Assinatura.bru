@@ -1,0 +1,19 @@
+meta {
+  name: Enviar p- Assinatura
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/contracts/1/send
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{adminToken}}
+}
+
+docs {
+  Em Análise → Pendente Assinatura. Cliente é notificado.
+}

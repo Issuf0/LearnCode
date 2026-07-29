@@ -4,7 +4,7 @@ import { COMPANY_INFO } from '../data/mockData';
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="sobre" className="py-20 bg-slate-50 text-slate-900 relative overflow-hidden border-t border-slate-200">
+    <section id="sobre" className="py-20 bg-slate-50 text-slate-900 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}

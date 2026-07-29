@@ -25,25 +25,25 @@ const HIGHLIGHTS = [
 
 export const PortalShowcaseSection: React.FC<PortalShowcaseSectionProps> = ({ onOpenPortal }) => {
   return (
-    <section id="portal" className="py-20 bg-slate-50 text-slate-900 relative border-t border-slate-200">
+    <section id="portal" className="py-20 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white relative border-t border-slate-200 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="p-8 sm:p-12 rounded-3xl bg-white text-slate-900 shadow-sm border border-slate-200 relative overflow-hidden">
+        <div className="p-8 sm:p-12 rounded-3xl bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-sm border border-slate-200 dark:border-slate-800 relative overflow-hidden">
           <div className="absolute -right-24 -top-24 w-96 h-96 bg-[#29b6e8] rounded-full opacity-[0.06] blur-3xl pointer-events-none" />
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left copy */}
             <div className="lg:col-span-6 space-y-5">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-600 text-xs font-semibold tracking-wide">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900 text-blue-600 dark:text-blue-400 text-xs font-semibold tracking-wide">
                 <MonitorSmartphone className="w-3.5 h-3.5" />
                 <span>Exclusivo para Clientes Learn Code</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight text-slate-900">
+              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight text-slate-900 dark:text-white">
                 Veja como vai acompanhar o{' '}
                 <span className="bg-gradient-to-r from-[#29b6e8] to-[#1a9cd8] bg-clip-text text-transparent">seu projecto.</span>
               </h2>
 
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-xl">
+              <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed max-w-xl">
                 Cada cliente da Learn Code recebe acesso a um portal privado onde o projecto
                 deixa de ser uma caixa negra: progresso, contratos, orçamentos e documentos,
                 tudo transparente e sempre disponível.
@@ -58,7 +58,7 @@ export const PortalShowcaseSection: React.FC<PortalShowcaseSectionProps> = ({ on
                 <ArrowRight className="w-4 h-4" />
               </button>
 
-              <p className="text-[11px] text-slate-500">
+              <p className="text-[11px] text-slate-500 dark:text-slate-400">
                 Demonstração interactiva com dados fictícios — o seu portal real é criado quando o projecto arranca.
               </p>
             </div>
@@ -68,14 +68,14 @@ export const PortalShowcaseSection: React.FC<PortalShowcaseSectionProps> = ({ on
               {HIGHLIGHTS.map((item) => (
                 <div
                   key={item.title}
-                  className="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex items-start gap-4"
+                  className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 flex items-start gap-4"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 text-[#1a9cd8] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900 text-[#1a9cd8] flex items-center justify-center shrink-0">
                     <item.icon className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="font-bold text-sm text-slate-900">{item.title}</p>
-                    <p className="text-xs text-slate-600 leading-relaxed mt-1">{item.desc}</p>
+                    <p className="font-bold text-sm text-slate-900 dark:text-white">{item.title}</p>
+                    <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mt-1">{item.desc}</p>
                   </div>
                 </div>
               ))}

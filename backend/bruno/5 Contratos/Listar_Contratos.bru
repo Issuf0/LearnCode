@@ -1,0 +1,15 @@
+meta {
+  name: Listar Contratos
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/contracts
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{adminToken}}
+}

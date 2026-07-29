@@ -1,0 +1,29 @@
+meta {
+  name: Criar Factura
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/invoices
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{adminToken}}
+}
+
+body:json {
+  {
+    "client_id": 2,
+    "description": "Sinal de 40% — Website Institucional",
+    "amount_mzn": 6000,
+    "issued_date": "2026-07-29",
+    "due_date": "2026-08-05"
+  }
+}
+
+docs {
+  Número FT 2026/XXX automático. Cliente é notificado.
+}

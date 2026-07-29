@@ -17,7 +17,7 @@ import {
   Receipt,
 } from 'lucide-react';
 import { ClientProfile, Project, Contract, Quotation, Invoice, PortalNotification, PortalTab } from '../../../types';
-import { formatMzn } from '../../../data/adminMockData';
+import { formatMzn } from '../../../api';
 import { COMPANY_INFO } from '../../../data/mockData';
 
 interface DashboardViewProps {

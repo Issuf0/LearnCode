@@ -1,0 +1,15 @@
+meta {
+  name: Listar (Cliente)
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/notifications?limit=50
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{clientToken}}
+}

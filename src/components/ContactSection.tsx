@@ -57,7 +57,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onSuccessToast }
   };
 
   return (
-    <section id="contacto" className="py-20 bg-white text-slate-900 relative border-t border-slate-200">
+    <section id="contacto" className="py-20 bg-white text-slate-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}

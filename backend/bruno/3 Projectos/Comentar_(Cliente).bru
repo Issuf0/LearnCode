@@ -1,0 +1,25 @@
+meta {
+  name: Comentar (Cliente)
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/projects/1/comments
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{clientToken}}
+}
+
+body:json {
+  {
+    "text": "Gostei muito do progresso! Quando podemos rever o design?"
+  }
+}
+
+docs {
+  Cliente e admin podem comentar no projecto.
+}
