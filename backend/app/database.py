@@ -12,7 +12,7 @@ def _normalize_url(url: str) -> str:
 
 
 engine = create_engine(
-    _normalize_url(get_settings().database_url),
+    _normalize_url(get_settings().effective_database_url),
     pool_pre_ping=True,
     pool_recycle=3600,
 )
