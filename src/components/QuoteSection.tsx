@@ -100,54 +100,54 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedService, 
   };
 
   return (
-    <section id="orcamento" className="py-20 bg-slate-50 text-slate-900 relative">
+    <section id="orcamento" className="py-20 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-600 text-xs font-semibold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider">
             <Calculator className="w-3.5 h-3.5" />
             <span>Solicitar Orçamento</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Pronto para transformar a sua ideia em{' '}
-            <span className="text-blue-600">
+            <span className="text-blue-600 dark:text-blue-400">
               realidade digital?
             </span>
           </h2>
 
-          <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed">
             Conte-nos a sua ideia e ajudaremos a transformá-la em realidade. Receba uma proposta técnica e financeira detalhada em menos de 24 horas.
           </p>
         </div>
 
         {/* Form Container */}
-        <div className="mt-12 max-w-4xl mx-auto bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm relative">
+        <div className="mt-12 max-w-4xl mx-auto bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-10 shadow-sm relative">
 
           {submittedRef ? (
             /* Success Feedback Card */
             <div className="py-12 px-4 text-center space-y-6">
-              <div className="w-20 h-20 bg-emerald-100 border-2 border-emerald-500 rounded-full flex items-center justify-center text-emerald-600 mx-auto shadow-md">
+              <div className="w-20 h-20 bg-emerald-100 dark:bg-emerald-950/50 border-2 border-emerald-500 rounded-full flex items-center justify-center text-emerald-600 mx-auto shadow-md">
                 <CheckCircle2 className="w-10 h-10 animate-bounce" />
               </div>
 
               <div className="space-y-2">
-                <span className="text-xs font-mono font-bold uppercase text-blue-600 tracking-wider">
+                <span className="text-xs font-mono font-bold uppercase text-blue-600 dark:text-blue-400 tracking-wider">
                   Pedido Registado com Sucesso
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
                   Obrigado, {formData.fullName}!
                 </h3>
-                <p className="text-slate-600 text-sm max-w-md mx-auto">
+                <p className="text-slate-600 dark:text-slate-400 text-sm max-w-md mx-auto">
                   O seu pedido foi encaminhado para o nosso WhatsApp comercial. Se a janela não abriu automaticamente, use o botão abaixo.
                 </p>
               </div>
 
               {/* Reference Badge */}
-              <div className="inline-block p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
-                <p className="text-[11px] font-mono text-slate-500 uppercase">Número de Referência do Pedido</p>
-                <p className="text-2xl font-mono font-extrabold text-blue-600">{submittedRef}</p>
+              <div className="inline-block p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 space-y-1">
+                <p className="text-[11px] font-mono text-slate-500 dark:text-slate-400 uppercase">Número de Referência do Pedido</p>
+                <p className="text-2xl font-mono font-extrabold text-blue-600 dark:text-blue-400">{submittedRef}</p>
                 <p className="text-[11px] text-emerald-600 font-semibold">Tempo estimado de resposta: &lt; 24 horas</p>
               </div>
 
@@ -165,7 +165,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedService, 
 
                 <button
                   onClick={resetForm}
-                  className="text-xs text-slate-500 hover:text-slate-800 underline cursor-pointer"
+                  className="text-xs text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white underline cursor-pointer"
                 >
                   Enviar novo pedido de orçamento
                 </button>
@@ -177,15 +177,15 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedService, 
 
               {/* Personal & Company Info */}
               <div className="space-y-4">
-                <h3 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2 flex items-center gap-2">
-                  <span className="w-6 h-6 rounded-full bg-blue-100 text-blue-600 text-xs flex items-center justify-center font-bold">1</span>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-2 flex items-center gap-2">
+                  <span className="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 text-xs flex items-center justify-center font-bold">1</span>
                   <span>Identificação do Cliente / Instituição</span>
                 </h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Nome */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-slate-700 flex items-center gap-1">
+                    <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1">
                       <span>Nome Completo</span>
                       <span className="text-rose-500">*</span>
                     </label>
@@ -195,14 +195,14 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedService, 
                       placeholder="Ex: Albino Mabunda"
                       value={formData.fullName}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:bg-white dark:focus:bg-slate-800 transition-colors"
                     />
                     {errors.fullName && <p className="text-[11px] text-rose-600 font-medium flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors.fullName}</p>}
                   </div>
 
                   {/* Empresa / Instituição */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-slate-700">
+                    <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">
                       Empresa / Instituição (Opcional)
                     </label>
                     <input
@@ -211,13 +211,13 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedService, 
                       placeholder="Ex: BCI / Startup X / Particular"
                       value={formData.company}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:bg-white dark:focus:bg-slate-800 transition-colors"
                     />
                   </div>
 
                   {/* Email */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-slate-700 flex items-center gap-1">
+                    <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1">
                       <span>Endereço de Email</span>
                       <span className="text-rose-500">*</span>
                     </label>
@@ -227,14 +227,14 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedService, 
                       placeholder="exemplo@empresa.co.mz"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:bg-white dark:focus:bg-slate-800 transition-colors"
                     />
                     {errors.email && <p className="text-[11px] text-rose-600 font-medium flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors.email}</p>}
                   </div>
 
                   {/* WhatsApp */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-slate-700 flex items-center gap-1">
+                    <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1">
                       <span>WhatsApp / Contacto Telefónico</span>
                       <span className="text-rose-500">*</span>
                     </label>
@@ -244,7 +244,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedService, 
                       placeholder="+258 84/85/86/87 000 0000"
                       value={formData.whatsapp}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:bg-white dark:focus:bg-slate-800 transition-colors"
                     />
                     {errors.whatsapp && <p className="text-[11px] text-rose-600 font-medium flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors.whatsapp}</p>}
                   </div>
@@ -253,20 +253,20 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedService, 
 
               {/* Project Scope & Specifications */}
               <div className="space-y-4">
-                <h3 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-2 flex items-center gap-2">
-                  <span className="w-6 h-6 rounded-full bg-blue-100 text-blue-600 text-xs flex items-center justify-center font-bold">2</span>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-2 flex items-center gap-2">
+                  <span className="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 text-xs flex items-center justify-center font-bold">2</span>
                   <span>Especificações do Projecto</span>
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {/* Tipo de projecto */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-slate-700">Tipo de Projecto</label>
+                    <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">Tipo de Projecto</label>
                     <select
                       name="projectType"
                       value={formData.projectType}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 focus:bg-white dark:focus:bg-slate-800 transition-colors"
                     >
                       {PROJECT_TYPES.map((pt, i) => (
                         <option key={i} value={pt}>
@@ -278,12 +278,12 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedService, 
 
                   {/* Orçamento estimado */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-slate-700">Orçamento Estimado (MZN)</label>
+                    <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">Orçamento Estimado (MZN)</label>
                     <select
                       name="estimatedBudget"
                       value={formData.estimatedBudget}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 focus:bg-white dark:focus:bg-slate-800 transition-colors"
                     >
                       {BUDGET_RANGES.map((b, i) => (
                         <option key={i} value={b}>
@@ -295,12 +295,12 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedService, 
 
                   {/* Prazo desejado */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-slate-700">Prazo Desejado</label>
+                    <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">Prazo Desejado</label>
                     <select
                       name="desiredTimeline"
                       value={formData.desiredTimeline}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-xs text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 focus:bg-white dark:focus:bg-slate-800 transition-colors"
                     >
                       {TIMELINES.map((t, i) => (
                         <option key={i} value={t}>
@@ -313,7 +313,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedService, 
 
                 {/* Descrição do projecto */}
                 <div className="space-y-1.5 pt-2">
-                  <label className="text-xs font-semibold text-slate-700 flex items-center justify-between">
+                  <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 flex items-center justify-between">
                     <span className="flex items-center gap-1">
                       <span>Descrição do Projecto / Objetivos</span>
                       <span className="text-rose-500">*</span>
@@ -326,7 +326,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedService, 
                     placeholder="Explique resumidamente os seus objetivos, funcionalidades desejadas, público-alvo ou quaisquer requisitos específicos..."
                     value={formData.description}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-colors resize-y"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:bg-white dark:focus:bg-slate-800 transition-colors resize-y"
                   />
                   {errors.description && <p className="text-[11px] text-rose-600 font-medium flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors.description}</p>}
                 </div>
@@ -334,9 +334,9 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedService, 
               </div>
 
               {/* Submit Bar & Helper text */}
-              <div className="pt-4 border-t border-slate-100 space-y-4">
+              <div className="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-4">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <div className="text-xs text-slate-500 flex items-center gap-2">
+                  <div className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
                     <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>Os seus dados estão protegidos sob total confidencialidade.</span>
                   </div>
@@ -351,7 +351,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedService, 
                   </button>
                 </div>
 
-                <p className="text-center text-xs text-slate-500 italic">
+                <p className="text-center text-xs text-slate-500 dark:text-slate-400 italic">
                   “Conte-nos a sua ideia e ajudaremos a transformá-la em realidade.”
                 </p>
               </div>

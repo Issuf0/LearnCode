@@ -94,7 +94,7 @@ export const SERVICES: ServiceItem[] = [
     shortDesc: 'Cursos práticos em tecnologias actuais.',
     fullDesc: 'Capacitamos jovens, estudantes e profissionais com metodologias 100% práticas, orientadas a projectos reais do mercado moçambicano, do básico ao avançado.',
     iconName: 'GraduationCap',
-    benefits: ['Projetos práticos do mundo real', 'Mentoria individualizada', 'Certificado de conclusão', 'Acompanhamento pós-curso'],
+    benefits: ['Projectos práticos do mundo real', 'Mentoria individualizada', 'Certificado de conclusão', 'Acompanhamento pós-curso'],
     category: 'education'
   }
 ];
