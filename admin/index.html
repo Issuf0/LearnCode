@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel Administrativo · Learn Code</title>
+    <meta name="description" content="Gestão interna da Learn Code." />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#1a9cd8" />
+    <script>
+      // Aplica o tema antes do React arrancar, para evitar "flash" de tema errado.
+      (function () {
+        try {
+          var mode = localStorage.getItem('lc-theme');
+          var dark =
+            mode === 'dark' ||
+            (mode !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (dark) document.documentElement.classList.add('dark');
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

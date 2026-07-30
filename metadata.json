@@ -1,6 +1,0 @@
-{
-  "name": "Learn Code",
-  "description": "Institutional website for Learn Code startup in Mozambique - Software, AI, and Education",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

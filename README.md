@@ -1,20 +1,38 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Learn Code — Plataforma Oficial
 
-# Run and deploy your AI Studio app
+Monorepo da plataforma da **Learn Code** (Marracuene, Moçambique): site público, portal do cliente, painel administrativo e API.
 
-This contains everything you need to run your app locally.
+## Estrutura
 
-View your app in AI Studio: https://ai.studio/apps/f934ade6-9a4b-4ee7-a7a0-47c3442474c2
+| Pasta | Aplicação | Stack | Deploy |
+|---|---|---|---|
+| [`site/`](site/) | Site público (aquisição de clientes) | React + Vite | Vercel |
+| [`portal/`](portal/) | Portal do Cliente (projectos, contratos, faturas, reuniões) | React + Vite | Vercel |
+| [`admin/`](admin/) | Painel Administrativo (gestão completa) | React + Vite | Vercel |
+| [`backend/`](backend/) | Learn Code API (autenticação, dados, PDFs de contratos) | FastAPI + MySQL | Railway |
 
-## Run Locally
+## Desenvolvimento local
 
-**Prerequisites:**  Node.js
+```bash
+# API (porta 8001) — ver backend/README.md para o setup completo
+cd backend && .venv/bin/uvicorn app.main:app --reload --port 8001
 
+# Site (3000) · Portal (3001) · Admin (3002)
+cd site   && npm install && npm run dev
+cd portal && npm install && npm run dev
+cd admin  && npm install && npm run dev
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Cada app tem um `.env.example` com as variáveis necessárias (`VITE_API_URL`, URLs cruzados entre apps).
+
+## Deploy
+
+Ver [DEPLOY.md](DEPLOY.md) — 3 projectos Vercel (um por app, com Root Directory próprio) + backend e MySQL no Railway.
+
+## Testes da API
+
+Colecção Bruno completa em [`backend/bruno/`](backend/bruno/) — 40 endpoints com payloads prontos e gestão automática de tokens.
+
+---
+
+*“Dignidade, compromisso e humildade em cada linha.”*
