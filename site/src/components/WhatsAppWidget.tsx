@@ -13,7 +13,7 @@ export const WhatsAppWidget: React.FC = () => {
   };
 
   const directUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
-    'Olá Learn Code! Gostaria de pedir um orçamento.'
+    'Olá Learn Code! Gostaria de informações sobre os vossos serviços.'
   )}`;
 
   return (
@@ -27,7 +27,7 @@ export const WhatsAppWidget: React.FC = () => {
         className="w-full flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-xl font-bold text-sm text-white bg-emerald-600 active:bg-emerald-700 shadow-md"
       >
         <MessageSquare className="w-5 h-5" />
-        <span>Pedir Orçamento no WhatsApp</span>
+        <span>Falar no WhatsApp</span>
       </a>
     </div>
 

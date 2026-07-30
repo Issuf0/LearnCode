@@ -8,7 +8,6 @@ import { ServicesSection } from './components/ServicesSection';
 import { ProductsSection } from './components/ProductsSection';
 import { CoursesSection } from './components/CoursesSection';
 import { PortfolioSection } from './components/PortfolioSection';
-import { PortalShowcaseSection } from './components/PortalShowcaseSection';
 import { FAQSection } from './components/FAQSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -16,8 +15,6 @@ import { WhatsAppWidget } from './components/WhatsAppWidget';
 import { NotFoundPage } from './components/NotFoundPage';
 import { Toast } from './components/Toast';
 import { ThemeMode } from './types';
-
-const PORTAL_URL = (import.meta.env.VITE_PORTAL_URL as string | undefined) ?? 'http://localhost:3001';
 
 const PUBLIC_PAGES = ['sobre', 'servicos', 'produtos', 'cursos', 'portfolio', 'contacto'];
 
@@ -90,9 +87,6 @@ export default function App() {
   useEffect(() => {
     if (pathRoot === 'orcamento') navigate('/contacto', { replace: true });
   }, [pathRoot, navigate]);
-  const openPortal = () => {
-    window.location.href = PORTAL_URL;
-  };
 
   return (
     <div className={`min-h-screen ${isDarkMode ? 'dark bg-slate-950 text-slate-100' : 'bg-slate-50 text-slate-900'} font-sans selection:bg-blue-600 selection:text-white transition-colors duration-200`}>
@@ -102,7 +96,6 @@ export default function App() {
         <Navbar
           themeMode={themeMode}
           onChangeTheme={setThemeMode}
-          onOpenPortal={openPortal}
         />
 
         <main>
@@ -115,7 +108,6 @@ export default function App() {
           {!isNotFound && publicPage === '' && (
             <>
               <Hero onContactClick={goToContact} onServicesClick={() => navigate('/servicos')} />
-              <PortalShowcaseSection onOpenPortal={openPortal} />
               <FAQSection />
             </>
           )}

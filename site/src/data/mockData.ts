@@ -254,21 +254,3 @@ export const CASE_STUDIES: CaseStudy[] = [
   }
 ];
 
-export const PROJECT_TYPES = [
-  'Desenvolvimento de Website / Landing Page',
-  'Aplicação Móvel (Android / iOS)',
-  'Sistema Desktop / Gestão Empresarial',
-  'Solução com Inteligência Artificial / Chatbot',
-  'Identidade Visual / Design Gráfico',
-  'Consultoria Tecnológica',
-  'Inscrição em Curso de Programação',
-  'Outro Projecto Personalizado'
-];
-
-export const TIMELINES = [
-  'Urgente (1 a 2 semanas)',
-  'Curto prazo (1 mês)',
-  'Médio prazo (2 a 3 meses)',
-  'Longo prazo (+ 3 meses)',
-  'Flexível / Em fase de planeamento'
-];

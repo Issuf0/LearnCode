@@ -16,7 +16,7 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: 'Quanto tempo demora um projecto?',
     answer:
-      'Websites institucionais ficam prontos em 2 a 4 semanas. Sistemas e aplicações personalizadas levam tipicamente de 4 a 12 semanas, conforme a complexidade. O prazo é definido no contrato e pode acompanhar o progresso em tempo real no nosso Portal do Cliente.',
+      'Websites institucionais ficam prontos em 2 a 4 semanas. Sistemas e aplicações personalizadas levam tipicamente de 4 a 12 semanas, conforme a complexidade. O prazo é definido no contrato e mantemos-lhe sempre informado sobre o progresso.',
   },
   {
     question: 'Como funciona o pagamento?',
@@ -26,7 +26,7 @@ const FAQ_ITEMS: FAQItem[] = [
   {
     question: 'Como acompanho o meu projecto depois de fechar?',
     answer:
-      'Cada cliente recebe acesso ao Portal do Cliente Learn Code, onde vê o progresso, milestones, contratos, faturas e documentos do projecto — além do contacto directo com a equipa pelo WhatsApp.',
+      'Mantemos um acompanhamento próximo e transparente: recebe actualizações regulares sobre o progresso, milestones e documentos do projecto, com contacto directo com a equipa pelo WhatsApp e por email.',
   },
   {
     question: 'E se eu precisar de alterações depois da entrega?',

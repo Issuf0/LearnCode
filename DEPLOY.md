@@ -1,56 +1,59 @@
 # Deploy — Learn Code
 
-Frontend no **Vercel** · Backend + MySQL no **Railway**.
+Arquitectura: **3 frontends no Vercel** (site, portal, admin) + **API e MySQL no Railway**.
 
-## 1. Backend no Railway
+```
+site/    → learncode.vercel.app            (público)
+portal/  → clientes-learncode.vercel.app   (área do cliente)
+admin/   → gestao-learncode.vercel.app     (painel interno)
+backend/ → learncode-api.up.railway.app    (FastAPI + MySQL)
+```
 
-1. Em [railway.app](https://railway.app) → **New Project** → **Deploy from GitHub repo** → escolhe `Issuf0/LearnCode`.
-2. No serviço criado → **Settings → Root Directory** = `backend` (essencial: o repositório é um monorepo).
-   O Railway detecta Python pelo `requirements.txt` e usa o `Procfile` (`uvicorn app.main:app --host 0.0.0.0 --port $PORT`).
-3. **+ New → Database → MySQL** no mesmo projecto.
-4. No serviço do backend → **Variables**:
+## 1. Backend no Railway (já configurado)
+
+1. Serviço a partir do repo `Issuf0/LearnCode` com **Root Directory = `backend`** + serviço **MySQL** no mesmo projecto.
+2. Variables do serviço LearnCode:
 
    | Variável | Valor |
    |---|---|
-   | `DATABASE_URL` | `${{ MySQL.MYSQL_URL }}` (referência à base de dados; o formato `mysql://` é convertido automaticamente pelo código) |
-   | `SECRET_KEY` | gerar: `python -c "import secrets; print(secrets.token_hex(32))"` |
+   | `DATABASE_URL` | `${{ MySQL.MYSQL_URL }}` |
+   | `SECRET_KEY` | `python -c "import secrets; print(secrets.token_hex(32))"` |
    | `ACCESS_TOKEN_EXPIRE_MINUTES` | `1440` |
    | `ADMIN_NAME` | `Issufo Karimo` |
    | `ADMIN_EMAIL` | `learncode.mz@gmail.com` |
-   | `ADMIN_PASSWORD` | senha forte (⚠️ não usar a de desenvolvimento) |
-   | `CORS_ORIGINS` | `https://<o-teu-dominio>.vercel.app` (vem do passo 2; separar múltiplos por vírgula) |
+   | `ADMIN_PASSWORD` | senha forte de produção |
+   | `CORS_ORIGINS` | **os 3 domínios Vercel, separados por vírgula, sem barra final** — ex.: `https://learncode.vercel.app,https://clientes-learncode.vercel.app,https://gestao-learncode.vercel.app` |
 
-5. **Deploy**. No arranque, a aplicação cria as tabelas e a conta de administrador automaticamente (idempotente — seguro em cada restart).
-6. Em **Settings → Networking → Generate Domain** obténs o URL público, ex.: `https://learncode-api.up.railway.app`. Testa: abrir `/docs`.
+3. No arranque a API cria tabelas e admin automaticamente (idempotente). Testar: `https://<dominio-railway>/docs`.
 
-## 2. Frontend no Vercel
+## 2. Três projectos no Vercel (mesmo repositório)
 
-1. Em [vercel.com](https://vercel.com) → **Add New → Project** → importa `Issuf0/LearnCode`.
-2. O Vercel detecta Vite automaticamente (build `npm run build`, output `dist`). O `vercel.json` já trata do fallback de SPA (as rotas `/portal/...`, `/admin/...` funcionam em refresh directo).
-3. **Environment Variables**:
+Para **cada** app, em vercel.com → Add New → Project → importar `Issuf0/LearnCode`:
 
-   | Variável | Valor |
-   |---|---|
-   | `VITE_API_URL` | `https://<dominio-do-railway>.up.railway.app/api` |
+| Projecto | Root Directory | Environment Variables |
+|---|---|---|
+| `learncode-site` | `site` | `VITE_PORTAL_URL` = URL do projecto portal |
+| `learncode-portal` | `portal` | `VITE_API_URL` = `https://<railway>/api` · `VITE_SITE_URL` = URL do site · `VITE_ADMIN_URL` = URL do admin |
+| `learncode-admin` | `admin` | `VITE_API_URL` = `https://<railway>/api` · `VITE_SITE_URL` = URL do site · `VITE_PORTAL_URL` = URL do portal |
 
-4. **Deploy**. Guarda o domínio gerado (ex.: `https://learncode.vercel.app`).
-5. Volta ao Railway e confirma que `CORS_ORIGINS` contém exactamente esse domínio (sem barra final). Redeploy do backend se o alterares.
+- O preset **Vite** é detectado automaticamente; cada pasta tem o seu `vercel.json` (fallback SPA).
+- Como os URLs se referenciam em círculo, faz assim: **deploy dos 3 primeiro** (com variáveis vazias se necessário), anota os 3 domínios, depois preenche as variáveis e faz **Redeploy** de cada um (variáveis Vite entram no build).
 
-## 3. Verificação pós-deploy
+## 3. Fecho
 
-- [ ] `https://<railway>/` responde `{"status": "ok"}` e `/docs` abre
-- [ ] Site público abre no domínio Vercel; refresh em `/servicos` não dá 404
-- [ ] Login do admin funciona (sem erros de CORS na consola do browser)
-- [ ] Criar um cliente de teste, orçamento e contrato; assinar e descarregar o PDF (fontes incluídas no repo — funciona no container)
-- [ ] Trocar a senha do admin se ainda não for definitiva
+1. Actualiza `CORS_ORIGINS` no Railway com os 3 domínios definitivos → o serviço reinicia sozinho.
+2. Checklist:
+   - [ ] Site abre e o botão "Área do Cliente"/portal leva ao domínio do portal
+   - [ ] Portal: login de cliente funciona; admin a entrar no portal é encaminhado para o painel
+   - [ ] Admin: login do administrador funciona; fluxo contrato → assinatura → PDF
+   - [ ] Sem erros de CORS na consola (F12)
 
-## 4. Domínio próprio (quando tiveres learncode.co.mz)
+## 4. Domínios próprios (futuro)
 
-- Vercel → Project → **Domains** → adicionar `learncode.co.mz` e seguir as instruções de DNS.
-- Actualizar `CORS_ORIGINS` no Railway para incluir o novo domínio.
+Sugestão com `learncode.co.mz`: site em `learncode.co.mz`, portal em `clientes.learncode.co.mz`, admin em `gestao.learncode.co.mz` — adicionar cada um no projecto Vercel respectivo e actualizar `CORS_ORIGINS` + variáveis `VITE_*_URL`.
 
 ## Notas
 
-- O MySQL local de desenvolvimento não é afectado — o `.env` local continua a apontar para `localhost`.
-- Custos: Railway tem plano gratuito limitado (o backend "adormece"/consome créditos); para produção real considerar o plano Hobby. Vercel é gratuito para este volume.
-- Backups: no Railway, o MySQL tem backups no plano pago; em alternativa, agendar `mysqldump` periódico.
+- Desenvolvimento local: API na porta 8001, site 3000, portal 3001, admin 3002 (`.env.example` em cada pasta).
+- A colecção Bruno (`backend/bruno/`) funciona contra produção mudando o `baseUrl` do ambiente.
+- Backups do MySQL: plano pago do Railway ou `mysqldump` agendado.

@@ -48,16 +48,6 @@ export interface CaseStudy {
   link?: string;
 }
 
-export interface QuoteFormData {
-  fullName: string;
-  company: string;
-  email: string;
-  whatsapp: string;
-  projectType: string;
-  desiredTimeline: string;
-  description: string;
-}
-
 export interface ContactFormData {
   name: string;
   email: string;

@@ -3,11 +3,11 @@ import { ArrowRight, Code2, CheckCircle2, ShieldCheck, Terminal, Cpu, Bot, Award
 import { COMPANY_INFO } from '../data/mockData';
 
 interface HeroProps {
-  onQuoteClick: () => void;
+  onContactClick: () => void;
   onServicesClick: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onQuoteClick, onServicesClick }) => {
+export const Hero: React.FC<HeroProps> = ({ onContactClick, onServicesClick }) => {
   const [codeIndex, setCodeIndex] = useState(0);
 
   const codeSnippets = [
@@ -86,10 +86,10 @@ async function deployProject(client) {
               {/* Action Buttons */}
               <div className="pt-3 flex flex-col sm:flex-row gap-3">
                 <button
-                  onClick={onQuoteClick}
+                  onClick={onContactClick}
                   className="px-7 py-3.5 bg-[#1a9cd8] hover:bg-[#29b6e8] text-white rounded-xl font-bold text-sm transition-all shadow-lg shadow-[#1a9cd8]/25 inline-flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <span>Solicitar Orçamento</span>
+                  <span>Fale Connosco</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
 

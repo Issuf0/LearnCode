@@ -102,11 +102,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
               </div>
 
               {/* Action Button */}
-              <div className="pt-5 mt-5 border-t border-slate-100 dark:border-slate-800 space-y-3">
-                <div className="flex items-baseline justify-between">
-                  <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Orçamento personalizado</span>
-                  <span className="text-sm font-bold text-slate-700 dark:text-slate-300">Resposta em 24h</span>
-                </div>
+              <div className="pt-5 mt-5 border-t border-slate-100 dark:border-slate-800">
                 <button
                   onClick={() => scrollToQuote(service.title)}
                   className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-slate-900 dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-500 transition-all cursor-pointer group/btn shadow-sm"
@@ -118,11 +114,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
             </div>
           ))}
         </div>
-
-        {/* Pricing Note */}
-        <p className="mt-8 text-center text-xs text-slate-500 dark:text-slate-400 italic">
-          * Cada projecto recebe uma proposta à medida, conforme a complexidade e os requisitos. Solicite um orçamento personalizado — o diagnóstico é gratuito.
-        </p>
 
       </div>
     </section>
