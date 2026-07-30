@@ -24,7 +24,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ onInquireCas
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider">
             <Briefcase className="w-3.5 h-3.5" />
-            <span>Portfólio & Casos de Sucesso</span>
+            <span>Projectos & Casos de Sucesso</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">

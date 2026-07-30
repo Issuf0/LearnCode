@@ -102,17 +102,7 @@ async function deployProject(client) {
                 </button>
               </div>
 
-              {/* Trust Stats */}
-              <div className="pt-4 border-t border-slate-200 dark:border-slate-800 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-lg">
-                {COMPANY_INFO.stats.map((stat) => (
-                  <div key={stat.label}>
-                    <p className="text-2xl font-black text-slate-900 dark:text-white">{stat.value}</p>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="text-xs text-slate-500 dark:text-slate-400 italic flex items-center gap-2">
+              <div className="pt-4 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 italic flex items-center gap-2">
                 <Award className="w-4 h-4 text-amber-500 shrink-0" />
                 <span>"{COMPANY_INFO.slogan}"</span>
               </div>

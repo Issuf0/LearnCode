@@ -16,15 +16,14 @@ import { NotFoundPage } from './components/NotFoundPage';
 import { Toast } from './components/Toast';
 import { ThemeMode } from './types';
 
-const PUBLIC_PAGES = ['sobre', 'servicos', 'produtos', 'cursos', 'portfolio', 'contacto'];
+const PUBLIC_PAGES = ['sobre', 'servicos', 'projectos', 'cursos', 'contacto'];
 
 const PUBLIC_TITLES: Record<string, string> = {
   '': 'Learn Code — Websites, Sistemas e IA em Moçambique',
   sobre: 'Sobre Nós · Learn Code',
   servicos: 'Serviços · Learn Code',
-  produtos: 'Produtos · Learn Code',
+  projectos: 'Projectos · Learn Code',
   cursos: 'Cursos · Learn Code',
-  portfolio: 'Portfólio · Learn Code',
   contacto: 'Contacto · Learn Code',
 };
 
@@ -32,9 +31,8 @@ const PUBLIC_DESCRIPTIONS: Record<string, string> = {
   '': 'A Learn Code desenvolve websites, aplicações móveis, sistemas de gestão e soluções de IA para empresas em Moçambique. Fale connosco pelo WhatsApp.',
   sobre: 'Conheça a Learn Code: startup tecnológica moçambicana de software, inteligência artificial e formação, sediada em Marracuene, Maputo.',
   servicos: 'Websites, aplicações móveis, sistemas desktop, soluções com IA e design gráfico em Moçambique. Diagnóstico gratuito em 24h.',
-  produtos: 'Produtos digitais da Learn Code: EcoMaputo, RoadMZ e outras soluções tecnológicas criadas em Moçambique.',
+  projectos: 'Projectos da Learn Code: casos de sucesso como SisPoupa e Quiz Code, e produtos digitais como EcoMaputo e RoadMZ, criados em Moçambique.',
   cursos: 'Cursos práticos de programação em Maputo: HTML/CSS, JavaScript, Python, Java e MySQL, com mentoria e certificado.',
-  portfolio: 'Projectos reais da Learn Code: SisPoupa (xitique digital), Quiz Code na Google Play e mais casos de sucesso em Moçambique.',
   contacto: 'Fale com a Learn Code: WhatsApp +258 82 837 6317, email learncode.mz@gmail.com, Marracuene, Maputo.',
 };
 
@@ -86,6 +84,7 @@ export default function App() {
 
   useEffect(() => {
     if (pathRoot === 'orcamento') navigate('/contacto', { replace: true });
+    if (pathRoot === 'produtos' || pathRoot === 'portfolio') navigate('/projectos', { replace: true });
   }, [pathRoot, navigate]);
 
   return (
@@ -120,16 +119,15 @@ export default function App() {
             <div className="pt-24 sm:pt-28 dark:bg-slate-950"><ServicesSection onSelectServiceForQuote={handleRequestQuote} /></div>
           )}
 
-          {publicPage === 'produtos' && (
-            <div className="pt-24 sm:pt-28 bg-slate-50 dark:bg-slate-950"><ProductsSection onInquireProduct={handleRequestQuote} /></div>
+          {publicPage === 'projectos' && (
+            <div className="pt-24 sm:pt-28 bg-slate-50 dark:bg-slate-950">
+              <PortfolioSection onInquireCase={handleRequestQuote} />
+              <ProductsSection onInquireProduct={handleRequestQuote} />
+            </div>
           )}
 
           {publicPage === 'cursos' && (
             <div className="pt-24 sm:pt-28 dark:bg-slate-950"><CoursesSection onEnrollCourse={handleRequestQuote} /></div>
-          )}
-
-          {publicPage === 'portfolio' && (
-            <div className="pt-24 sm:pt-28 bg-slate-50 dark:bg-slate-950"><PortfolioSection onInquireCase={handleRequestQuote} /></div>
           )}
 
           {publicPage === 'contacto' && (

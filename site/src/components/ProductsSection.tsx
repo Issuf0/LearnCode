@@ -16,7 +16,7 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({ onInquireProdu
   };
 
   return (
-    <section id="produtos" className="py-20 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white relative">
+    <section id="produtos" className="py-20 bg-white dark:bg-slate-950 text-slate-900 dark:text-white relative border-t border-slate-200 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}

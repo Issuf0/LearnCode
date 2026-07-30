@@ -107,18 +107,6 @@ export const AboutSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Stats Grid */}
-        <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-          {COMPANY_INFO.stats.map((stat, i) => (
-            <div key={i} className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-              <p className="text-3xl sm:text-4xl font-extrabold text-blue-600 dark:text-blue-400">
-                {stat.value}
-              </p>
-              <p className="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 mt-1">{stat.label}</p>
-            </div>
-          ))}
-        </div>
-
       </div>
     </section>
   );

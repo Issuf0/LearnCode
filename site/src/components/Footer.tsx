@@ -8,9 +8,8 @@ const FOOTER_LINKS = [
   { path: '/', label: 'Início' },
   { path: '/sobre', label: 'Sobre' },
   { path: '/servicos', label: 'Serviços' },
-  { path: '/produtos', label: 'Produtos' },
+  { path: '/projectos', label: 'Projectos' },
   { path: '/cursos', label: 'Cursos' },
-  { path: '/portfolio', label: 'Portfólio' },
   { path: '/contacto', label: 'Contacto' },
 ];
 

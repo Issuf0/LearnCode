@@ -28,12 +28,6 @@ export const COMPANY_INFO = {
     { title: 'Responsabilidade', description: 'Assumir com seriedade o impacto das nossas soluções na sociedade e nos negócios.' },
     { title: 'Humildade', description: 'Aprender continuamente, escutar o cliente e evoluir com a comunidade.' },
   ],
-  stats: [
-    { label: 'Projectos Criados', value: '25+' },
-    { label: 'Alunos Formados', value: '300+' },
-    { label: 'Soluções de IA Active', value: '5+' },
-    { label: 'Satisfação do Cliente', value: '99%' }
-  ]
 };
 
 export const SERVICES: ServiceItem[] = [
