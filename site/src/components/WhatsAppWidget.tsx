@@ -12,30 +12,11 @@ export const WhatsAppWidget: React.FC = () => {
     setIsOpen(false);
   };
 
-  const directUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
-    'Olá Learn Code! Gostaria de informações sobre os vossos serviços.'
-  )}`;
-
   return (
-    <>
-    {/* Mobile: fixed bottom CTA bar (sempre visível, converte mais que um ícone) */}
-    <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 p-3 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
-      <a
-        href={directUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-full flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-xl font-bold text-sm text-white bg-emerald-600 active:bg-emerald-700 shadow-md"
-      >
-        <MessageSquare className="w-5 h-5" />
-        <span>Falar no WhatsApp</span>
-      </a>
-    </div>
-
-    {/* Desktop: floating widget */}
-    <div className="hidden sm:flex fixed bottom-6 right-6 z-40 flex-col items-end">
+    <div className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end">
       {/* Quick Chat Popup */}
       {isOpen && (
-        <div className="mb-4 w-80 bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl p-4 text-white animate-in slide-in-from-bottom duration-200">
+        <div className="mb-4 w-[calc(100vw-2.5rem)] max-w-xs sm:max-w-sm sm:w-80 bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl p-4 text-white animate-in slide-in-from-bottom duration-200">
           <div className="flex items-center justify-between pb-3 border-b border-slate-800">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/50 flex items-center justify-center text-emerald-400">
@@ -89,6 +70,5 @@ export const WhatsAppWidget: React.FC = () => {
         <MessageSquare className="w-6 h-6 fill-current" />
       </button>
     </div>
-    </>
   );
 };
