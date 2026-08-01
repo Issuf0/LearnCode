@@ -10,6 +10,7 @@ import { CoursesSection } from './components/CoursesSection';
 import { PortfolioSection } from './components/PortfolioSection';
 import { FAQSection } from './components/FAQSection';
 import { ContactSection } from './components/ContactSection';
+import { HomeHighlightsSection } from './components/HomeHighlightsSection';
 import { Footer } from './components/Footer';
 import { WhatsAppWidget } from './components/WhatsAppWidget';
 import { NotFoundPage } from './components/NotFoundPage';
@@ -80,7 +81,9 @@ export default function App() {
 
   // Antigo fluxo de orçamento removido: todos os CTAs levam ao contacto
   const goToContact = () => navigate('/contacto');
-  const handleRequestQuote = () => navigate('/contacto');
+  // Leva o assunto escolhido (serviço, curso, projecto) até ao formulário de contacto
+  const handleRequestQuote = (subject: string) => navigate('/contacto', { state: { subject } });
+  const contactSubject = (location.state as { subject?: string } | null)?.subject;
 
   useEffect(() => {
     if (pathRoot === 'orcamento') navigate('/contacto', { replace: true });
@@ -107,6 +110,7 @@ export default function App() {
           {!isNotFound && publicPage === '' && (
             <>
               <Hero onContactClick={goToContact} onServicesClick={() => navigate('/servicos')} />
+              <HomeHighlightsSection />
               <FAQSection />
             </>
           )}
@@ -131,7 +135,7 @@ export default function App() {
           )}
 
           {publicPage === 'contacto' && (
-            <div className="pt-24 sm:pt-28 dark:bg-slate-950"><ContactSection onSuccessToast={(msg) => setToastMessage(msg)} /></div>
+            <div className="pt-24 sm:pt-28 dark:bg-slate-950"><ContactSection initialSubject={contactSubject} onSuccessToast={(msg) => setToastMessage(msg)} /></div>
           )}
         </main>
 

@@ -43,6 +43,7 @@ export const WhatsAppWidget: React.FC = () => {
 
             <textarea
               rows={2}
+              aria-label="Mensagem para o WhatsApp"
               value={quickMsg}
               onChange={(e) => setQuickMsg(e.target.value)}
               className="w-full p-2 rounded-lg bg-slate-950 border border-slate-800 text-xs text-slate-100 focus:outline-none focus:border-emerald-500 resize-none"

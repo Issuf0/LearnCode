@@ -110,7 +110,18 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, on
             Interessado em integrar este produto na sua instituição?
           </p>
 
-          <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
+          <div className="flex items-center gap-3 w-full sm:w-auto justify-end flex-wrap">
+            {product.link && (
+              <a
+                href={product.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-xl text-xs font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 flex items-center gap-1.5 transition-colors"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                <span>{product.link.includes('play.google.com') ? 'Ver na Google Play' : 'Visitar plataforma'}</span>
+              </a>
+            )}
             <button
               onClick={onClose}
               className="px-4 py-2 rounded-xl text-xs font-medium text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700 cursor-pointer"

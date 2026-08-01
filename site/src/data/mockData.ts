@@ -112,7 +112,8 @@ export const PRODUCTS: ProductItem[] = [
     features: ['Simulador de exames com temporizador oficial', 'Chatbot IA especialista no Código da Estrada Moçambicano', 'Sinalização rodoviária explicada', 'Estatísticas de desempenho do aluno'],
     impactSummary: 'Mais de 3.000 exames simulados realizados e taxa de aprovação de 88% entre os utilizadores frequentes.',
     targetAudience: 'Candidatos à carta de condução, escolas de condução e condutores em actualização.',
-    techStack: ['React Native', 'FastAPI', 'Gemini AI API']
+    techStack: ['React Native', 'FastAPI', 'Gemini AI API'],
+    link: 'https://play.google.com/store/apps/details?id=com.karimo02.codigoestrada'
   },
   {
     id: 'codigo-civil-mz',

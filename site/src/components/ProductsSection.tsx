@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Package, ArrowRight, CheckCircle2, ChevronRight, Info } from 'lucide-react';
+import { Package, CheckCircle2, ChevronRight, Info, ExternalLink } from 'lucide-react';
 import { PRODUCTS } from '../data/mockData';
 import { ProductItem } from '../types';
 import { ProductModal } from './ProductModal';
@@ -101,22 +101,36 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({ onInquireProdu
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-5 mt-5 border-t border-slate-100 dark:border-slate-800 grid grid-cols-2 gap-3">
-                <button
-                  onClick={() => setSelectedProduct(prod)}
-                  className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer"
-                >
-                  <Info className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
-                  <span>Saiba mais</span>
-                </button>
+              <div className="pt-5 mt-5 border-t border-slate-100 dark:border-slate-800 space-y-3">
+                <div className="grid grid-cols-2 gap-3">
+                  <button
+                    onClick={() => setSelectedProduct(prod)}
+                    className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer"
+                  >
+                    <Info className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                    <span>Saiba mais</span>
+                  </button>
 
-                <button
-                  onClick={() => scrollToQuote(`Parceria: ${prod.name}`)}
-                  className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-sm transition-all cursor-pointer"
-                >
-                  <span>Pedir Demo</span>
-                  <ChevronRight className="w-3.5 h-3.5" />
-                </button>
+                  <button
+                    onClick={() => scrollToQuote(`Parceria: ${prod.name}`)}
+                    className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-sm transition-all cursor-pointer"
+                  >
+                    <span>Pedir Demo</span>
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+
+                {prod.link && (
+                  <a
+                    href={prod.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-colors"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    <span>{prod.link.includes('play.google.com') ? 'Ver na Google Play' : 'Visitar plataforma'}</span>
+                  </a>
+                )}
               </div>
             </div>
           ))}

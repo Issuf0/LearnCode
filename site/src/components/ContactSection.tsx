@@ -1,20 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Send, Facebook, Instagram, CheckCircle2, MessageSquare, AlertCircle } from 'lucide-react';
 import { COMPANY_INFO } from '../data/mockData';
 import { ContactFormData } from '../types';
 
 interface ContactSectionProps {
+  initialSubject?: string;
   onSuccessToast?: (msg: string) => void;
 }
 
-export const ContactSection: React.FC<ContactSectionProps> = ({ onSuccessToast }) => {
+export const ContactSection: React.FC<ContactSectionProps> = ({ initialSubject, onSuccessToast }) => {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
     phone: '',
-    subject: '',
+    subject: initialSubject ?? '',
     message: '',
   });
+
+  useEffect(() => {
+    if (initialSubject) {
+      setFormData((prev) => ({ ...prev, subject: initialSubject }));
+      setSentSuccess(false);
+    }
+  }, [initialSubject]);
 
   const [sentSuccess, setSentSuccess] = useState(false);
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
@@ -211,8 +219,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onSuccessToast }
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1">
-                    <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">Seu Nome</label>
+                    <label htmlFor="contact-name" className="text-xs font-semibold text-slate-700 dark:text-slate-300">Seu Nome</label>
                     <input
+                      id="contact-name"
                       type="text"
                       name="name"
                       placeholder="Ex: Carlos Sitoe"
@@ -224,8 +233,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onSuccessToast }
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">Email</label>
+                    <label htmlFor="contact-email" className="text-xs font-semibold text-slate-700 dark:text-slate-300">Email</label>
                     <input
+                      id="contact-email"
                       type="email"
                       name="email"
                       placeholder="seu.email@dominio.co.mz"
@@ -239,9 +249,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onSuccessToast }
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1">
-                    <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">Telemóvel / WhatsApp</label>
+                    <label htmlFor="contact-phone" className="text-xs font-semibold text-slate-700 dark:text-slate-300">Telemóvel / WhatsApp</label>
                     <input
-                      type="text"
+                      id="contact-phone"
+                      type="tel"
                       name="phone"
                       placeholder="+258 84 000 0000"
                       value={formData.phone}
@@ -251,8 +262,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onSuccessToast }
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">Assunto</label>
+                    <label htmlFor="contact-subject" className="text-xs font-semibold text-slate-700 dark:text-slate-300">Assunto</label>
                     <input
+                      id="contact-subject"
                       type="text"
                       name="subject"
                       placeholder="Ex: Informações sobre Cursos / Parceria"
@@ -264,8 +276,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onSuccessToast }
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-xs font-semibold text-slate-700 dark:text-slate-300">Mensagem</label>
+                  <label htmlFor="contact-message" className="text-xs font-semibold text-slate-700 dark:text-slate-300">Mensagem</label>
                   <textarea
+                    id="contact-message"
                     name="message"
                     rows={4}
                     placeholder="Escreva a sua mensagem aqui..."
